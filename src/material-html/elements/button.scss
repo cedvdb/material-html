@@ -1,0 +1,36 @@
+/* when the primary class is present it's button whom bg color is primary*/
+button, input[type="submit"], .button{
+	background: transparent;
+	border: none;
+	border-radius: var(--border-radius);
+	outline: 0;
+	padding: var(--spacing-sm) var(--spacing-md);
+	&:hover{
+		background: var(--color-bg-btn-hover);
+	}	
+	&:active{
+		background: var(--color-bg-btn-active);		
+	}
+	&.primary{
+		background: var(--color-primary);
+		color: var(--color-primary-txt);
+		&:hover{
+			background: var(--color-primary-dark);
+		}
+	}
+	&.accent{
+		background: var(--color-accent);
+		color: var(--color-accent-txt);
+		&:hover{
+			background: var(--color-accent-dark);	
+		}
+	}
+	&:disabled, &:disabled:hover{
+		cursor: default;
+		background: var(--color-bg-btn-disabled);
+		color: var(--color-txt-lighter);
+	}
+}
+
+
+

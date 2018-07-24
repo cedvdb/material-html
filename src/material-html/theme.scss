@@ -1,0 +1,51 @@
+@import './palette/light-palette-functions';
+@import './vars/vars';
+
+
+/**
+* function that takes a primary color etc to define a
+* set of css4 variables that can be used throughout the
+* application
+*/
+@mixin apply-theme-l($primary: 'indigo', $accent: 'brown', $warn: 'red', $isDark: false){
+	// gets each palette
+	$palette: whole-palette-l($primary, $accent, $warn, $isDark);
+	$primary: map-get($palette, primary);
+	$accent: map-get($palette, accent);
+	$warn: map-get($palette, warn);
+	$background: map-get($palette, background);
+	$text: map-get($palette, text);
+	$divider: map-get($palette, divider);
+
+	@include apply-vars-l($spacing, '--spacing');
+	@include apply-vars-l($border, '--border');
+	@include apply-vars-l($font-weight, '--font-weight');
+	@include apply-vars-l($primary, '--color-primary');
+	@include apply-vars-l($accent, '--color-accent');
+	@include apply-vars-l($warn, '--color-warn');
+	@include apply-vars-l($background, '--color-bg');
+	@include apply-vars-l($text, '--color-txt');
+	@include apply-vars-l($divider, '--color-divider');
+}
+
+@mixin apply-vars-l($map, $prefix){
+	@if type-of($map) == map{
+		@include apply-varmap-l($map, $prefix);
+	}@else{
+		@include apply-var($map, $prefix)
+	}
+}
+
+@mixin apply-var($value, $prefix){
+	#{$prefix}: $value;
+}
+
+@mixin apply-varmap-l($map, $prefix){
+	@each $key, $val in $map{
+		@if $key == ''{
+			#{$prefix}: $val;
+		}@else{
+			#{$prefix}-#{$key}: $val;
+		}
+	}
+}

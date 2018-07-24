@@ -1,0 +1,118 @@
+
+/* Look here to know where values come from
+https://material.io/guidelines/style/typography.html#typography-styles
+summary there:
+https://getmdl.io/styles/index.html */
+
+
+/* body 1 */
+body, .body, .body1 {
+	/* perf optimisation : Default font is the one from OS,
+	huge drawback is that it's not displaying font-weight: 500
+	correctly on ubuntu. Not sure about other OS's.
+	If it's only ubuntu it's no big deal but if other OS's
+	don't display it either we might want to revert to Roboto font only */
+	font-family: -apple-system,system-ui,"Segoe UI",Roboto,
+	Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	color: var(--color-txt);
+	// seems like the commented line below might do some weird stuff
+	// text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* fn that trnasofrm sp units to rem  */
+@function sprem($sp) {
+  @return ($sp / 14) * 1rem;
+}
+
+// 1. Here we have a mixin that outputs the different font properties
+@mixin get-typo(
+  $font-size,
+  $line-height: $font-size,
+	$font-weight: 400,
+	$margin-bottom: null) {
+
+	font-size: sprem($font-size);
+	line-height: sprem($line-height);
+	font-weight: $font-weight;
+	@if $margin-bottom != null {
+		margin: 0 0 sprem($margin-bottom);
+	}
+}
+
+ // 2. Here we map the material design levels to our own values that
+ // are gonna be passed to the mixin above
+
+ // angular material directly uses sp to px but I don't believe that is correct.
+ // 1rem => 16 px => 14sp,
+ // so the values below are sp values converted to rem
+ $typo-config:(
+  display4: (112, 112, 300),
+  display3: (56, 56, 400,),
+  display2: (45, 48, 400),
+  display1: (34, 40, 400),
+  headline: (24, 32, 400),
+  title: (20, 32, 500),
+  subheading: (16, 28, 400),
+  body2: (14, 24, 500),
+  body1: (14, 20, 400),
+  caption: (12, 20, 400),
+  button: (14, 14, 500),
+  input: (16, 18, 400)
+);
+
+// map material design level to html tags
+$mat-to-html:(
+  display4: h1,
+  display3: h2,
+  display2: h3,
+	display1: h4,
+	/*
+	Not sure about header here. Maybe another tag would be better
+	but I'm runnign out of html tags..
+	*/
+  headline: header,
+  title: h5,
+	subheading: h6,
+  body2: b,
+  body1: body,
+  caption: small,
+  button: button,
+  input: input
+);
+
+// applies the type given a key. Example: apply-typo(display-4)
+@mixin apply-typo($key){
+	$list : map-get($typo-config, $key);
+	$size : nth($list, 1);
+	$line-height : nth($list, 2);
+	$weight : nth($list, 3);
+	@include get-typo($size, $line-height, $weight);
+}
+
+// for each material value (display4) we apply the typo to h6, .h6, .display4
+@each $mat-val, $html in $mat-to-html{
+  #{$html}, .#{$html}, .#{$mat-val}{
+    @include apply-typo($mat-val);
+  }
+}
+
+// menuitem{
+// 	// @include apply-typo(headline);
+// }
+
+// Mat doc says buttons should be uppercase..
+// angular material doesn't enforce this.
+button, input[type="submit"]{
+	color: var(--color-txt);
+	text-transform: uppercase;
+}
+
+small{
+	color: var(--color-txt-lighter);
+}
+
+// time{
+// 	// @include apply-typo(time);
+// }

@@ -1,0 +1,88 @@
+@import "./palette";
+@import "./palette-map";
+@import './mat-theming-functions';
+
+@function get-palette($palette){
+	@if type-of($palette) == string {
+		$colorKey: map-get($palette-map-l, $palette);
+    $palette: palette-l($colorKey);
+	}
+	@return $palette;
+}
+
+@function whole-palette-l($primary, $accent, $warn, $isDark) {
+
+	$primary: get-palette($primary);
+	$primary: extract-mat-colors-l($primary);
+	$accent: get-palette($accent);
+	$accent: extract-mat-colors-l($accent);
+	$warn: get-palette($warn);
+	$warn: map-get($warn, default);
+	$background: '';
+	$foreground: '';
+
+	@if $isDark{
+		$foreground: $mat-dark-theme-foreground;
+		$background: $mat-dark-theme-background;
+	}@else{
+		$foreground: $mat-light-theme-foreground;
+		$background: $mat-light-theme-background;
+	}
+
+	$background: extract-mat-bg-l($background);
+	$text: extract-mat-txt-color-l($foreground); 
+	$divider: map-get($foreground, divider);
+
+	@return (
+		primary: $primary,
+		accent: $accent,
+		warn: $warn,
+		text: $text,
+		background: $background,
+		divider: $divider
+	);
+}
+
+
+
+@function palette-l($base-palette, $default: 500, $lighter: 100, $darker: 700) {
+  @return (
+    default: map-get($base-palette, $default),
+    lighter: map-get($base-palette, $lighter),
+    darker: map-get($base-palette, $darker),
+    contrast: mat-contrast($base-palette, $default),
+    lighter-contrast: mat-contrast($base-palette, $lighter),
+    darker-contrast: mat-contrast($base-palette, $darker)
+  );
+}
+
+/* Angular material design has a lot of color options
+We filter a lot of them that are not needed here.*/
+
+@function extract-mat-colors-l($mat-colors){
+	@return(
+		'': map-get($mat-colors, default),
+		light: map-get($mat-colors, lighter),
+		dark: map-get($mat-colors, darker),
+		txt: map-get($mat-colors, contrast),
+	);
+}
+
+@function extract-mat-bg-l($mat-colors){
+	@return(
+		'': map-get($mat-colors, background),
+		dialog: map-get($mat-colors, dialog),
+		btn : transparent,
+		btn-hover: map-get($mat-colors, focused-button),
+		btn-active: map-get($mat-colors, selected-button),
+		btn-disabled: map-get($mat-colors, disabled-button),
+	);
+}
+
+@function extract-mat-txt-color-l($mat-colors){
+	@return (
+		'': map-get($mat-colors, text),
+		light: map-get($mat-colors, secondary-text),
+		lighter: map-get($mat-colors, hint-text),
+	);
+}

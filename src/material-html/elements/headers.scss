@@ -1,0 +1,36 @@
+h1, h2, h3, h4, h5, h6, header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+}
+		
+h1, h2, h3, h4, h5, h6{
+	margin:0;
+	&.primary{
+		background: var(--color-primary);
+		color: var(--color-primary-txt);
+	}
+	&.accent{
+		background: var(--color-accent);
+		color: var(--color-accent-txt);
+	}
+}
+
+h1, h2, h3, h4{
+	padding: var(--spacing-xlg);	
+	margin-bottom: var(--spacing-lg);	
+}
+h5, h6{
+	padding: var(--spacing-sm) var(--spacing-md);	
+	margin-bottom: var(--spacing-md);	
+}
+
+
+
+/* header has primary color */
+header, .header{
+	padding: var(--spacing-sm) var(--spacing-md);		
+	display: flex;	
+	background: var(--color-primary);
+	color: var(--color-primary-txt);
+}

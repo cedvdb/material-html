@@ -1,0 +1,45 @@
+/* General fixes */
+
+body, menu, menuitem, dialog, input {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: none;
+	color: inherit;
+}
+
+body {
+	min-height: 100vh;
+	background: var(--color-bg);
+	color: var(--color-txt);
+}
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+i {
+	font-style: normal;
+}
+
+i, button, menu, .button {
+	cursor: pointer;
+}
+
+ul {
+	margin:0;
+	padding: 0;
+}
+
+strong {
+	font-weight: 400;
+	color: var(--color-warn);
+}
+
+::selection {
+	background: var(--color-accent);
+	color: var(--color-accent-txt);
+}
+

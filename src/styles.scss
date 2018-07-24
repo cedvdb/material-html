@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import './material-html/all';
+@import './material-html/layouts/vanilla';
+
+
+:root{
+	@include apply-theme-l('blue', 'amber');
+}
