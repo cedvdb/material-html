@@ -1,8 +1,10 @@
 
-/* Look here to know where values come from
-https://material.io/guidelines/style/typography.html#typography-styles
-summary there:
-https://getmdl.io/styles/index.html */
+/**
+* Look here to know where values come from
+*	https://material.io/guidelines/style/typography.html#typography-styles
+*	summary there:
+*	https://getmdl.io/styles/index.html
+*/
 
 
 /* body 1 */
@@ -21,10 +23,12 @@ body, .body, .body1 {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+
 /* fn that trnasofrm sp units to rem  */
 @function sprem($sp) {
   @return ($sp / 14) * 1rem;
 }
+
 
 // 1. Here we have a mixin that outputs the different font properties
 @mixin get-typo(
@@ -64,15 +68,15 @@ body, .body, .body1 {
 
 // map material design level to html tags
 $mat-to-html:(
-  display4: h1,
-  display3: h2,
-  display2: h3,
-	display1: h4,
+  // display4: h1,
+  display3: h1,
+  display2: h2,
+	display1: h3,
 	/*
 	Not sure about header here. Maybe another tag would be better
 	but I'm runnign out of html tags..
 	*/
-  headline: header,
+  headline: h4,
   title: h5,
 	subheading: h6,
   body2: b,
@@ -113,6 +117,6 @@ small{
 	color: var(--color-txt-lighter);
 }
 
-// time{
-// 	// @include apply-typo(time);
-// }
+time{
+	@extend small;
+}

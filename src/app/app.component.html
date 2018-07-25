@@ -1,36 +1,21 @@
-<header> 
+<header>
   <span>Icon</span>
   <span>Title</span>
   <span>Action</span>
 </header>
+
 <main>
 
-  <h1 class="primary">Light</h1>
-  <h2 class="accent">Light</h2>
-  <h3 class="primary">Light</h3>
-  <h4 class="accent">Light</h4>
-  <h5 class="primary">Light</h5>
-  <h6 class="accent">Light</h6>
-  <header class="accent">Light</header>
-  
-  
-  <button class="z-2">BUTTON</button>
-  <button disabled>BUTTON</button>
-  <button class="primary" disabled>BUTTON</button>
-  
-  <button class="primary">BUTTON</button>
-  <button class="accent">BUTTON</button>
+  <router-outlet></router-outlet>
 
-  <input type="text"/>
-  
 </main>
-<nav sideNav>
+<nav class="open">
   <small>Styles</small>
-  <a class="button">typography</a>
-  <a class="button">headers</a>
-  <a class="button">lists</a>
-  <a class="button">elevation</a>
-  <a class="button">buttons</a>
-  <a class="button">theming</a>
+  <a class="button" routerLink="typography">typography</a>
+  <a class="button" routerLink="headers">headers</a>
+  <a class="button" routerLink="list">lists</a>
+  <a class="button" routerLink="elevation">elevation</a>
+  <a class="button" routerLink="buttons">buttons</a>
+  <a class="button" routerLink="getting-started">theming</a>
 </nav>
 <footer>and dem footer</footer>
