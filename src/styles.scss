@@ -4,5 +4,5 @@
 
 
 :root{
-	@include apply-theme-l('blue', 'amber');
+	@include generate-theme('blue', 'amber');
 }

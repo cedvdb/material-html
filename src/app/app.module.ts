@@ -8,6 +8,7 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { ElevationPageComponent } from './pages/elevation-page/elevation-page.component';
 import { ButtonsPageComponent } from './pages/buttons-page/buttons-page.component';
 import { GettingStartedPageComponent } from './pages/getting-started-page/getting-started-page.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { GettingStartedPageComponent } from './pages/getting-started-page/gettin
 	],
 	imports: [
 		BrowserModule,
+		PagesModule,
 		RouterModule.forRoot([
 			{ path: 'typography', component: TypographyPageComponent },
 			{ path: 'header', component: HeadersPageComponent },

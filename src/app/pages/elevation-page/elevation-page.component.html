@@ -1,3 +1,35 @@
-<p>
-  elevation-page works!
-</p>
+
+<section class="mg-l">
+  <header class="primary">
+    Elevation classes
+  </header>
+  <main>
+    Here are the different elevation class you can use to elevate your elements.
+    Elevation goes from 1 to 12 and are preceded with 'z-'. example:
+  </main>
+</section>
+
+<div class="cardCtnr flex flexWrap">
+  <section *ngFor="let level of levels" class="z-{{ level }} mg-m flexCenter">
+    <span>z-{{ level }}</span>
+  </section>
+</div>
+
+<section class="mg-l">
+  <header class="primary">
+    Special Elevation classes
+  </header>
+  <main>
+    Here are the different elevation class that have a special behavior. For example z-h applies elevation on hover, z-a on active
+  </main>
+</section>
+
+<div class="cardCtnr flex flexWrap">
+  <section class="z-h flexCenter mg-m">
+    <span>z-h</span>
+  </section>
+
+  <section class="z-a flexCenter mg-m">
+    <span>z-a</span>
+  </section>
+</div>

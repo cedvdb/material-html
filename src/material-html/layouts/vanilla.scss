@@ -5,8 +5,8 @@
   grid-template-rows: auto 1fr auto;  /* key rule */
   grid-template-columns: auto 1fr;
   height: 100vh;
-  grid-template-areas: "header header" 
-                         "nav main" 
+  grid-template-areas: "header header"
+                         "nav main"
                        "footer footer";
 }
 
@@ -14,22 +14,22 @@
 
 	/* work with classes as well as html standard elements*/
 	header, .header{
-		@extend .z-5; /* elevation shadow */		
-		grid-area: header;	
+		@extend .z-3; /* elevation shadow */
+		grid-area: header;
 		z-index: 3;
 		height: 3rem;
-		align-items: center;	
-		margin: 0;	
+		align-items: center;
+		margin: 0;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;	
+		align-items: center;
 	}
 
 	nav, .nav{
-		@extend .z-3; /*elevation shadow  */		
-		z-index: 2;	
+		@extend .z-3; /*elevation shadow  */
+		z-index: 2;
 		width: 0;
-		grid-area: nav;	
+		grid-area: nav;
 		transition: min-width 1s;
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -47,7 +47,7 @@
 	}
 
 	main{
-		grid-area: main;	
+		grid-area: main;
 	}
 
 	footer{

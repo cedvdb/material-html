@@ -1,51 +1,32 @@
 @import './palette/light-palette-functions';
 @import './vars/vars';
-
+@import './utils';
 
 /**
 * function that takes a primary color etc to define a
-* set of css4 variables that can be used throughout the
-* application
+* set of css4 variables for colors that can be used throughout the application
 */
-@mixin apply-theme-l($primary: 'indigo', $accent: 'brown', $warn: 'red', $isDark: false){
+@mixin generate-theme($primary: 'indigo', $accent: 'brown', $warn: 'red', $success: 'green', $isDark: false) {
 	// gets each palette
-	$palette: whole-palette-l($primary, $accent, $warn, $isDark);
+	$palette: whole-palette($primary, $accent, $warn, $success, $isDark);
 	$primary: map-get($palette, primary);
 	$accent: map-get($palette, accent);
+	$success: map-get($palette, success);
 	$warn: map-get($palette, warn);
 	$background: map-get($palette, background);
 	$text: map-get($palette, text);
 	$divider: map-get($palette, divider);
-
-	@include apply-vars-l($spacing, '--spacing');
-	@include apply-vars-l($border, '--border');
-	@include apply-vars-l($font-weight, '--font-weight');
-	@include apply-vars-l($primary, '--color-primary');
-	@include apply-vars-l($accent, '--color-accent');
-	@include apply-vars-l($warn, '--color-warn');
-	@include apply-vars-l($background, '--color-bg');
-	@include apply-vars-l($text, '--color-txt');
-	@include apply-vars-l($divider, '--color-divider');
+	// putting scss vars in css4 form
+	@include apply-var($primary, '--color-primary');
+	@include apply-var($accent, '--color-accent');
+	@include apply-var($success, '--color-success');
+	@include apply-var($warn, '--color-warn');
+	@include apply-var($background, '--color-bg');
+	@include apply-var($text, '--color-txt');
+	@include apply-var($divider, '--color-divider');
+	// vars defined by us
+	@include apply-var($spacing, '--spacing');
+	@include apply-var($border, '--border');
+	@include apply-var($font-weight, '--font-weight');
 }
 
-@mixin apply-vars-l($map, $prefix){
-	@if type-of($map) == map{
-		@include apply-varmap-l($map, $prefix);
-	}@else{
-		@include apply-var($map, $prefix)
-	}
-}
-
-@mixin apply-var($value, $prefix){
-	#{$prefix}: $value;
-}
-
-@mixin apply-varmap-l($map, $prefix){
-	@each $key, $val in $map{
-		@if $key == ''{
-			#{$prefix}: $val;
-		}@else{
-			#{$prefix}-#{$key}: $val;
-		}
-	}
-}

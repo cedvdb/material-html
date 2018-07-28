@@ -1,3 +1,5 @@
+
+
 /* Exact same file as angular material palette
 https://github.com/angular/material2/blob/master/src/lib/core/theming/_palette.scss */
 
@@ -6,7 +8,7 @@ https://github.com/angular/material2/blob/master/src/lib/core/theming/_palette.s
 
 
 // values are taken from the angular material repository
-// Contrast colors are mainly for text and such, so for the 
+// Contrast colors are mainly for text and such, so for the
 // red palette if we use the 500 red, then the text should be
 // white.
 
@@ -650,7 +652,7 @@ $mat-light-theme-background: (
   status-bar: map_get($mat-grey, 300),
   app-bar:    map_get($mat-grey, 100),
   background: map_get($mat-grey, 50),
-  hover:      rgba(black, 0.04), 
+  hover:      rgba(black, 0.04),
   card:       white,
   dialog:     white,
   disabled-button: $black-12-opacity,
@@ -668,7 +670,7 @@ $mat-dark-theme-background: (
   status-bar: black,
   app-bar:    map_get($mat-grey, 900),
   background: #303030,
-  hover:      rgba(white, 0.04), 
+  hover:      rgba(white, 0.04),
   card:       map_get($mat-grey, 800),
   dialog:     map_get($mat-grey, 800),
   disabled-button: $white-12-opacity,

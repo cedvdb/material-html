@@ -1,0 +1,22 @@
+
+// generates css4 vars given a map and a prefix
+@mixin apply-var($map, $prefix) {
+	@each $key, $val in $map {
+		@if $key == '' {
+			#{$prefix}: $val;
+		} @else{
+			#{$prefix}-#{$key}: $val;
+		}
+	}
+}
+
+
+// creates classes given a prefix and a map and a css propertyName
+@mixin apply-class($map, $prefix, $propertyName) {
+	@each $key, $val in $map{
+		.#{$prefix}-#{$key} {
+			#{$propertyName}: $val;
+		}
+	}
+}
+

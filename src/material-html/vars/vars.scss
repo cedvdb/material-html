@@ -1,14 +1,17 @@
 
+// basic variables that are gonna be used to generate css4 vars by
+// generate-theme function
 $spacing: (
 	xxs: 0.1rem,
 	xs: 0.2rem,
-	sm: 0.5rem,
-	md: 1rem,
-	lg: 1.6rem,
-	xlg: 3.2rem);
+	s: 0.5rem,
+	m: 1rem,
+	l: 1.6rem,
+	xl: 3.2rem);
 
 $border: (
-	radius: 0.15rem
+	radius: 0.2rem,
+	radius-s: 0.1rem
 );
 
 $font-weight: (

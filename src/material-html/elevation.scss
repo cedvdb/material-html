@@ -1,18 +1,17 @@
 /*
 Below is the snippet for creating elevation for angular material.
 
-However they do create 24, elevation levels !!
+However they do create 24, elevation levels !
 I feel like this is way too much, ( https://en.wikipedia.org/wiki/The_Paradox_of_Choice ),
 
-I picked 6 of those.
+I picked half of those and even then it's a lot.
 
-You can check for yourself the 24 level in actions here: 
+You can check for yourself the 24 level in actions here:
 
 https://jsfiddle.net/jxbwqyo2/
 
 */
 
-$picked: (1, 2, 3, 5, 9, 14);
 
 
 // Colors for umbra, penumbra, and ambient shadows. As described in the design doc, each elevation
@@ -132,17 +131,16 @@ $_ambient-elevation-map: (
 
 /* back to my picks */
 
-@for $i from 1 through length($picked){
-  $current: nth($picked, $i);
+@for $i from 0 through 12 {
 
   .#{z}-#{$i}{
-    @include mat-elevation($current);
+    @include mat-elevation($i + 1);
   }
 }
 
 .z-h, .z-a{
-	@extend .z-2;	
-	transition: all 0.28s cubic-bezier(.25,.8,.25,1);	
+	@extend .z-2;
+	transition: all 0.28s cubic-bezier(.25,.8,.25,1);
 }
 
 .z-h:hover, .z-a:active {

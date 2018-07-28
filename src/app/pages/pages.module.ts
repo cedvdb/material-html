@@ -11,6 +11,21 @@ import { GettingStartedPageComponent } from './getting-started-page/getting-star
   imports: [
     CommonModule
   ],
-  declarations: [TypographyPageComponent, HeadersPageComponent, ListPageComponent, ElevationPageComponent, ButtonsPageComponent, GettingStartedPageComponent]
+  declarations: [
+    TypographyPageComponent,
+    HeadersPageComponent,
+    ListPageComponent,
+    ElevationPageComponent,
+    ButtonsPageComponent,
+    GettingStartedPageComponent
+  ],
+  exports: [
+    TypographyPageComponent,
+    HeadersPageComponent,
+    ListPageComponent,
+    ElevationPageComponent,
+    ButtonsPageComponent,
+    GettingStartedPageComponent
+  ]
 })
 export class PagesModule { }

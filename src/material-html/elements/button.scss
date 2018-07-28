@@ -1,36 +1,87 @@
 /* when the primary class is present it's button whom bg color is primary*/
-button, input[type="submit"], .button{
-	background: transparent;
+button, input[type="submit"], .button {
+	background: var(--color-bg-btn);
 	border: none;
 	border-radius: var(--border-radius);
 	outline: 0;
-	padding: var(--spacing-sm) var(--spacing-md);
-	&:hover{
+	padding: var(--spacing-s) var(--spacing-m);
+	transition: background 0.3s;
+
+	&:hover {
 		background: var(--color-bg-btn-hover);
-	}	
-	&:active{
-		background: var(--color-bg-btn-active);		
 	}
-	&.primary{
+
+	&:active {
+		background: var(--color-bg-btn-active);
+	}
+
+	// primary
+	&.primary {
 		background: var(--color-primary);
 		color: var(--color-primary-txt);
-		&:hover{
+		&:hover {
 			background: var(--color-primary-dark);
 		}
 	}
-	&.accent{
+
+	// accent
+	&.accent {
 		background: var(--color-accent);
 		color: var(--color-accent-txt);
-		&:hover{
-			background: var(--color-accent-dark);	
+
+		&:hover {
+			background: var(--color-accent-light);
 		}
 	}
-	&:disabled, &:disabled:hover{
+
+	// warn
+	&.warn {
+		background: var(--color-warn);
+		color: var(--color-warn-txt);
+
+		&:hover {
+			background: var(--color-warn-light);
+		}
+	}
+
+	// disabled
+	&:disabled, &:disabled:hover {
 		cursor: default;
 		background: var(--color-bg-btn-disabled);
 		color: var(--color-txt-lighter);
 	}
+
 }
 
 
 
+
+// ripple effect when clicking an element, it's a dumbed down css only version of the material design js version
+button {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10,10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+
+  &:active:after  {
+    transform: scale(0,0);
+    opacity: .2;
+    transition: 0s;
+  }
+}
