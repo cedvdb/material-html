@@ -1,23 +1,57 @@
 
 
-/* Exact same file as angular material palette
+/* modified version of
 https://github.com/angular/material2/blob/master/src/lib/core/theming/_palette.scss */
 
 // Color palettes from the Material Design spec.
-// See https://www.google.com/design/spec/style/color.html
+// See https://material.io/design/color/
+//
+// Contrast colors are hard-coded because it is too difficult (probably impossible) to
+// calculate them. These contrast colors are pulled from the public Material Design spec swatches.
+// While the contrast colors in the spec are not prescriptive, we use them for convenience.
 
+$dark-on-light-alpha-primary: 0.87;
+$dark-on-light-alpha-secondary: 0.54;
+$dark-on-light-alpha-third: 0.38;
+$dark-on-light-alpha-fourth: 0.12;
 
-// values are taken from the angular material repository
-// Contrast colors are mainly for text and such, so for the
-// red palette if we use the 500 red, then the text should be
-// white.
+$light-on-dark-alpha-primary: 0.7;
+$light-on-dark-alpha-secondary: 0.5;
+$light-on-dark-alpha-third: 0.3;
+$light-on-dark-alpha-fourth: 0.10;
 
-$black-87-opacity: rgba(black, 0.87);
-$white-87-opacity: rgba(white, 0.87);
-$black-12-opacity: rgba(black, 0.12);
-$white-12-opacity: rgba(white, 0.12);
-$black-6-opacity: rgba(black, 0.06);
-$white-6-opacity: rgba(white, 0.06);
+$background: (
+  primary: white,
+  secondary: #fafafa,
+  primary-dark: #424242,
+  secondary-dark: #303030
+);
+
+$button: (
+  alpha: transparent,
+  alpha-hover: $dark-on-light-alpha-primary,
+  alpha-active: $dark-on-light-alpha-secondary,
+  alpha-dark: transparent,
+  alpha-hover-dark: $light-on-dark-alpha-primary,
+  alpha-active-dark: $light-on-dark-alpha-secondary,
+);
+
+$text: (
+  primary: rgba(black, $dark-on-light-alpha-primary),
+  secondary: rgba(black, $dark-on-light-alpha-secondary),
+  third: rgba(black, $dark-on-light-alpha-secondary),
+  primary-dark: rgba(white, $light-on-dark-alpha-primary),
+  secondary-dark: rgba(white, $light-on-dark-alpha-secondary),
+  third-dark: rgba(white, $light-on-dark-alpha-third)
+);
+
+$divider: (
+  '':  rgba(black, $dark-on-light-alpha-fourth),
+  dark:  rgba(white, $light-on-dark-alpha-fourth),
+);
+
+$dark-primary-text: map-get($text, primary-dark);
+$light-primary-text: map-get($text, primary);
 
 $mat-red: (
   50: #ffebee,
@@ -35,20 +69,20 @@ $mat-red: (
   A400: #ff1744,
   A700: #d50000,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: white,
-    A400: white,
-    A700: white,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -68,20 +102,20 @@ $mat-pink: (
   A400: #f50057,
   A700: #c51162,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: white,
-    A400: white,
-    A700: white,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -101,20 +135,20 @@ $mat-purple: (
   A400: #d500f9,
   A700: #aa00ff,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: white,
-    400: white,
-    500: $white-87-opacity,
-    600: $white-87-opacity,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: white,
-    A400: white,
-    A700: white,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -134,20 +168,20 @@ $mat-deep-purple: (
   A400: #651fff,
   A700: #6200ea,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: white,
-    400: white,
-    500: $white-87-opacity,
-    600: $white-87-opacity,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: white,
-    A400: $white-87-opacity,
-    A700: $white-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -167,20 +201,20 @@ $mat-indigo: (
   A400: #3d5afe,
   A700: #304ffe,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: white,
-    400: white,
-    500: $white-87-opacity,
-    600: $white-87-opacity,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: white,
-    A400: white,
-    A700: $white-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -200,20 +234,20 @@ $mat-blue: (
   A400: #2979ff,
   A700: #2962ff,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: white,
-    A400: white,
-    A700: white,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -233,20 +267,20 @@ $mat-light-blue: (
   A400: #00b0ff,
   A700: #0091ea,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: white,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -266,20 +300,20 @@ $mat-cyan: (
   A400: #00e5ff,
   A700: #00b8d4,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -299,20 +333,20 @@ $mat-teal: (
   A400: #1de9b6,
   A700: #00bfa5,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -332,20 +366,20 @@ $mat-green: (
   A400: #00e676,
   A700: #00c853,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -365,20 +399,20 @@ $mat-light-green: (
   A400: #76ff03,
   A700: #64dd17,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: $black-87-opacity,
-    600: $black-87-opacity,
-    700: white,
-    800: white,
-    900: white,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -398,20 +432,20 @@ $mat-lime: (
   A400: #c6ff00,
   A700: #aeea00,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: $black-87-opacity,
-    600: $black-87-opacity,
-    700: $black-87-opacity,
-    800: $black-87-opacity,
-    900: white,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -431,20 +465,20 @@ $mat-yellow: (
   A400: #ffea00,
   A700: #ffd600,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: $black-87-opacity,
-    600: $black-87-opacity,
-    700: $black-87-opacity,
-    800: $black-87-opacity,
-    900: $black-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -464,20 +498,20 @@ $mat-amber: (
   A400: #ffc400,
   A700: #ffab00,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: $black-87-opacity,
-    600: $black-87-opacity,
-    700: $black-87-opacity,
-    800: $black-87-opacity,
-    900: $black-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
   )
 );
 
@@ -497,19 +531,19 @@ $mat-orange: (
   A400: #ff9100,
   A700: #ff6d00,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: $black-87-opacity,
-    600: $black-87-opacity,
-    700: $black-87-opacity,
-    800: white,
-    900: white,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
     A700: black,
   )
 );
@@ -530,20 +564,20 @@ $mat-deep-orange: (
   A400: #ff3d00,
   A700: #dd2c00,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: white,
-    A700: white,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -563,20 +597,20 @@ $mat-brown: (
   A400: #8d6e63,
   A700: #5d4037,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: white,
-    400: white,
-    500: $white-87-opacity,
-    600: $white-87-opacity,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: white,
-    A700: $white-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
@@ -596,22 +630,25 @@ $mat-grey: (
   A400: #bdbdbd,
   A700: #616161,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
-    500: $black-87-opacity,
-    600: $white-87-opacity,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: $white-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
   )
 );
+
+// Alias for alternate spelling.
+$mat-gray: $mat-grey;
 
 $mat-blue-grey: (
   50: #eceff1,
@@ -629,92 +666,23 @@ $mat-blue-grey: (
   A400: #78909c,
   A700: #455a64,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: white,
-    500: white,
-    600: $white-87-opacity,
-    700: $white-87-opacity,
-    800: $white-87-opacity,
-    900: $white-87-opacity,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: white,
-    A700: $white-87-opacity,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 
+// Alias for alternate spelling.
+$mat-blue-gray: $mat-blue-grey;
 
-// Background palette for light themes.
-$mat-light-theme-background: (
-  status-bar: map_get($mat-grey, 300),
-  app-bar:    map_get($mat-grey, 100),
-  background: map_get($mat-grey, 50),
-  hover:      rgba(black, 0.04),
-  card:       white,
-  dialog:     white,
-  disabled-button: $black-12-opacity,
-  raised-button: white,
-  focused-button: $black-6-opacity,
-  selected-button: map_get($mat-grey, 300),
-  selected-disabled-button: map_get($mat-grey, 400),
-  disabled-button-toggle: map_get($mat-grey, 200),
-  unselected-chip: map_get($mat-grey, 300),
-  disabled-list-option: map_get($mat-grey, 200),
-);
-
-// Background palette for dark themes.
-$mat-dark-theme-background: (
-  status-bar: black,
-  app-bar:    map_get($mat-grey, 900),
-  background: #303030,
-  hover:      rgba(white, 0.04),
-  card:       map_get($mat-grey, 800),
-  dialog:     map_get($mat-grey, 800),
-  disabled-button: $white-12-opacity,
-  raised-button: map-get($mat-grey, 800),
-  focused-button: $white-6-opacity,
-  selected-button: map_get($mat-grey, 900),
-  selected-disabled-button: map_get($mat-grey, 800),
-  disabled-button-toggle: black,
-  unselected-chip: map_get($mat-grey, 700),
-  disabled-list-option: black,
-);
-
-// Foreground palette for light themes.
-$mat-light-theme-foreground: (
-  base:              black,
-  divider:           $black-12-opacity,
-  dividers:          $black-12-opacity,
-  disabled:          rgba(black, 0.38),
-  disabled-button:   rgba(black, 0.38),
-  disabled-text:     rgba(black, 0.38),
-  hint-text:         rgba(black, 0.38),
-  secondary-text:    rgba(black, 0.54),
-  icon:              rgba(black, 0.54),
-  icons:             rgba(black, 0.54),
-  text:              rgba(black, 0.87),
-  slider-min:        rgba(black, 0.87),
-  slider-off:        rgba(black, 0.26),
-  slider-off-active: rgba(black, 0.38),
-);
-
-// Foreground palette for dark themes.
-$mat-dark-theme-foreground: (
-  base:              white,
-  divider:           $white-12-opacity,
-  dividers:          $white-12-opacity,
-  disabled:          rgba(white, 0.3),
-  disabled-button:   rgba(white, 0.3),
-  disabled-text:     rgba(white, 0.3),
-  hint-text:         rgba(white, 0.3),
-  secondary-text:    rgba(white, 0.7),
-  icon:              white,
-  icons:             white,
-  text:              white,
-  slider-min:        white,
-  slider-off:        rgba(white, 0.3),
-  slider-off-active: rgba(white, 0.3),
-);

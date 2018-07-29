@@ -10,8 +10,9 @@ body, menu, menuitem, dialog, input {
 
 body {
 	min-height: 100vh;
-	background: var(--color-bg);
-	color: var(--color-txt);
+	// the background of the body is secondary
+	// and the section, etc. go primary
+	background: var(--color-bg-secondary);
 }
 
 
@@ -39,7 +40,8 @@ strong {
 }
 
 ::selection {
-	background: var(--color-accent);
-	color: var(--color-accent-txt);
+	background: var(--color-secondary);
+	color: var(--color-secondary-contrast);
 }
+
 

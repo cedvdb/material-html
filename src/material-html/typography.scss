@@ -16,7 +16,7 @@ body, .body, .body1 {
 	don't display it either we might want to revert to Roboto font only */
 	font-family: -apple-system,system-ui,"Segoe UI",Roboto,
 	Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	color: var(--color-txt);
+	color: var(--color-txt-primary);
 	// seems like the commented line below might do some weird stuff
 	// text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -107,14 +107,13 @@ $mat-to-html:(
 // }
 
 // Mat doc says buttons should be uppercase..
-// angular material doesn't enforce this.
 button, input[type="submit"]{
-	color: var(--color-txt);
+	color: var(--color-txt-primary);
 	text-transform: uppercase;
 }
 
 small{
-	color: var(--color-txt-lighter);
+	color: var(--color-txt-third);
 }
 
 time{

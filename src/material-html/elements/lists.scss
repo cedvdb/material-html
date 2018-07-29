@@ -1,9 +1,9 @@
-li, .li{
+li, .li {
 	border: none;
 	border-bottom: 0.1rem solid var(--color-divider);
 	list-style-type: none;
 }
 
-article, li, menuitem, .article, .li{
+article, li, menuitem, .article, .li {
 	padding: var(--spacing-sm);
 }

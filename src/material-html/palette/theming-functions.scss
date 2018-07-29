@@ -1,5 +1,4 @@
 @import './palettes';
-@import './mat-theming-functions';
 
 // maps a string with a palette
 $palette-map: (
@@ -24,6 +23,16 @@ $palette-map: (
 	'blue-grey': $mat-blue-grey
 );
 
+// For a given hue in a palette, return the contrast color from the map of contrast palettes.
+// @param $color-map
+// @param $hue
+@function mat-contrast($palette, $hue) {
+  @return map-get(map-get($palette, contrast), $hue);
+}
+
+
+
+
 
 /** Generates palette with their contrast*/
 @function palette($base-palette, $default: 500, $light: 100, $dark: 700) {
@@ -40,8 +49,8 @@ $palette-map: (
 }
 
 
-/** gets a mat palette given a string */
-@function get-palette($palette) {
+/** gets a mat palette given a color string */
+@function get-mat-palette($palette) {
 	@if type-of($palette) == string {
 		// we have a string representing the color
 		// then we get we get the correct material palette
@@ -52,27 +61,15 @@ $palette-map: (
 	@return $palette;
 }
 
+
+
 /** generate the whole palette */
-@function whole-palette($primary, $accent, $warn, $success, $isDark) {
+@function whole-palette($primary, $accent, $warn, $success) {
 	// primary is the color palette for example the blue palette
-	$primary: get-palette($primary);
-	$accent: get-palette($accent);
-	$warn: get-palette($warn);
-	$success: get-palette($success);
-	$background: '';
-	$foreground: '';
-
-	@if $isDark{
-		$foreground: $mat-dark-theme-foreground;
-		$background: $mat-dark-theme-background;
-	}@else{
-		$foreground: $mat-light-theme-foreground;
-		$background: $mat-light-theme-background;
-	}
-
-	$background: extract-mat-bg-l($background);
-	$text: extract-mat-txt-color-l($foreground);
-	$divider: map-get($foreground, divider);
+	$primary: get-mat-palette($primary);
+	$accent: get-mat-palette($accent);
+	$warn: get-mat-palette($warn);
+	$success: get-mat-palette($success);
 
 	@return (
 		primary: $primary,
@@ -81,26 +78,9 @@ $palette-map: (
 		warn: $warn,
 		text: $text,
 		background: $background,
-		divider: $divider
+		divider: $divider,
+		button: $button,
 	);
 }
 
 
-@function extract-mat-bg-l($mat-colors){
-	@return(
-		'': map-get($mat-colors, background),
-		secondary: map-get($mat-colors, dialog),
-		btn : transparent,
-		btn-hover: map-get($mat-colors, focused-button),
-		btn-active: map-get($mat-colors, selected-button),
-		btn-disabled: map-get($mat-colors, disabled-button),
-	);
-}
-
-@function extract-mat-txt-color-l($mat-colors){
-	@return (
-		'': map-get($mat-colors, text),
-		light: map-get($mat-colors, secondary-text),
-		lighter: map-get($mat-colors, hint-text),
-	);
-}

@@ -1,7 +1,9 @@
 
 section {
 	@extend .z-1;
+	// header { }
 	main {
 		padding: var(--spacing-m);
 	}
+	// footer {}
 }

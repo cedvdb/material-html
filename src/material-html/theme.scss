@@ -1,4 +1,4 @@
-@import './palette/light-palette-functions';
+@import './palette/theming-functions';
 @import './vars/vars';
 @import './utils';
 
@@ -6,16 +6,18 @@
 * function that takes a primary color etc to define a
 * set of css4 variables for colors that can be used throughout the application
 */
-@mixin generate-theme($primary: 'indigo', $accent: 'brown', $warn: 'red', $success: 'green', $isDark: false) {
+@mixin generate-theme($primary: 'indigo', $accent: 'brown', $warn: 'red', $success: 'green') {
 	// gets each palette
-	$palette: whole-palette($primary, $accent, $warn, $success, $isDark);
+	$palette: whole-palette($primary, $accent, $warn, $success);
 	$primary: map-get($palette, primary);
 	$accent: map-get($palette, accent);
 	$success: map-get($palette, success);
 	$warn: map-get($palette, warn);
 	$background: map-get($palette, background);
+	$button: map-get($palette, button);
 	$text: map-get($palette, text);
 	$divider: map-get($palette, divider);
+
 	// putting scss vars in css4 form
 	@include apply-var($primary, '--color-primary');
 	@include apply-var($accent, '--color-accent');
@@ -23,10 +25,20 @@
 	@include apply-var($warn, '--color-warn');
 	@include apply-var($background, '--color-bg');
 	@include apply-var($text, '--color-txt');
+	@include apply-var($button, '--color-btn');
 	@include apply-var($divider, '--color-divider');
+
 	// vars defined by us
 	@include apply-var($spacing, '--spacing');
 	@include apply-var($border, '--border');
 	@include apply-var($font-weight, '--font-weight');
+	// TODO:
+	/**
+	1. Add option to add helper classes or not
+	2. Button and divider should be generated with alpha channel
+	3. light and dark bg
+
+	*/
+
 }
 

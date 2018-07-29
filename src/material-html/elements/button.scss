@@ -1,6 +1,6 @@
 /* when the primary class is present it's button whom bg color is primary*/
 button, input[type="submit"], .button {
-	background: var(--color-bg-btn);
+	background: var(--color-btn);
 	border: none;
 	border-radius: var(--border-radius);
 	outline: 0;
@@ -54,8 +54,6 @@ button, input[type="submit"], .button {
 }
 
 
-
-
 // ripple effect when clicking an element, it's a dumbed down css only version of the material design js version
 button {
   position: relative;
@@ -85,3 +83,4 @@ button {
     transition: 0s;
   }
 }
+
