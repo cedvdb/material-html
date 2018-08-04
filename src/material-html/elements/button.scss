@@ -1,54 +1,49 @@
 /* when the primary class is present it's button whom bg color is primary*/
 button, input[type="submit"], .button {
-	background: var(--color-btn);
+	background: white;
 	border: none;
 	border-radius: var(--border-radius);
 	outline: 0;
-	padding: var(--spacing-s) var(--spacing-m);
-	transition: background 0.3s;
+	padding: var(--spacing-xs) var(--spacing-s);
+	transition: filter 0.3s;
 
 	&:hover {
-		background: var(--color-bg-btn-hover);
+		filter: brightness(var(--color-btn-brightness-hover));
 	}
 
 	&:active {
-		background: var(--color-bg-btn-active);
+		filter: brightness(var(--color-btn-brightness-active));
 	}
 
 	// primary
 	&.primary {
 		background: var(--color-primary);
-		color: var(--color-primary-txt);
-		&:hover {
-			background: var(--color-primary-dark);
-		}
+		color: var(--color-primary-contrast);
 	}
 
 	// accent
 	&.accent {
 		background: var(--color-accent);
-		color: var(--color-accent-txt);
-
-		&:hover {
-			background: var(--color-accent-light);
-		}
+		color: var(--color-accent-contrast);
 	}
 
 	// warn
 	&.warn {
 		background: var(--color-warn);
-		color: var(--color-warn-txt);
+		color: var(--color-warn-contrast);
+	}
 
-		&:hover {
-			background: var(--color-warn-light);
-		}
+	// success
+	&.success {
+		background: var(--color-success);
+		color: var(--color-success-contrast);
 	}
 
 	// disabled
 	&:disabled, &:disabled:hover {
 		cursor: default;
-		background: var(--color-bg-btn-disabled);
 		color: var(--color-txt-lighter);
+		filter: brightness(var(--color-btn-brightness-disabled));
 	}
 
 }

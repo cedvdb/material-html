@@ -9,6 +9,7 @@ import { ElevationPageComponent } from './pages/elevation-page/elevation-page.co
 import { ButtonsPageComponent } from './pages/buttons-page/buttons-page.component';
 import { GettingStartedPageComponent } from './pages/getting-started-page/getting-started-page.component';
 import { PagesModule } from './pages/pages.module';
+import { CardPageComponent } from './pages/card-page/card-page.component';
 
 @NgModule({
 	declarations: [
@@ -23,7 +24,8 @@ import { PagesModule } from './pages/pages.module';
 			{ path: 'list', component: ListPageComponent },
 			{ path: 'elevation', component: ElevationPageComponent },
 			{ path: 'button', component: ButtonsPageComponent },
-			{ path: 'getting-started', component: GettingStartedPageComponent }
+			{ path: 'getting-started', component: GettingStartedPageComponent },
+			{ path: 'card', component: CardPageComponent }
 		])
 	],
 	providers: [],

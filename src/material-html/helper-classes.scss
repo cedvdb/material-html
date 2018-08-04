@@ -1,18 +1,45 @@
 @import './utils';
 @import './vars/vars';
 
-/** Colors */
-// @each $key, $val in $palette {
-// 	@if $key == ''{
-// 		#{$prefix}: $val;
-// 	}@else{
-// 		#{$prefix}-#{$key}: $val;
-// 	}
-// }
+
 
 /** Spacing */
 @include apply-class($spacing, 'mg' , margin);
 @include apply-class($spacing, 'pd' , padding);
+
+/** colors */
+
+.bg-primary {
+	background: var(--color-primary);
+}
+
+.color-primary {
+	color: var(--color-primary);
+}
+
+.bg-accent {
+	background: var(--color-accent);
+}
+
+.color-accent {
+	color: var(--color-accent);
+}
+
+.bg-warn {
+	background: var(--color-warn);
+}
+
+.color-warn {
+	color: var(--color-warn);
+}
+
+.bg-success {
+	background: var(--color-success);
+}
+
+.color-success {
+	color: var(--color-success);
+}
 /** Flex */
 
 .flex {

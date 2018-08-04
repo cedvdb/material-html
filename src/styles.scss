@@ -6,3 +6,7 @@
 :root{
 	@include generate-theme('blue', 'amber');
 }
+
+section {
+	width: 70%;
+}

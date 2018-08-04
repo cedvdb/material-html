@@ -1,4 +1,4 @@
-
+@import './utils';
 /**
 * Look here to know where values come from
 *	https://material.io/guidelines/style/typography.html#typography-styles
@@ -23,23 +23,20 @@ body, .body, .body1 {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-
-/* fn that trnasofrm sp units to rem  */
-@function sprem($sp) {
-  @return ($sp / 14) * 1rem;
-}
-
-
 // 1. Here we have a mixin that outputs the different font properties
 @mixin get-typo(
-  $font-size,
-  $line-height: $font-size,
+  $font-size: 1rem,
 	$font-weight: 400,
+	$letterSpacing: 0,
+	$case: null,
 	$margin-bottom: null) {
 
 	font-size: sprem($font-size);
-	line-height: sprem($line-height);
+	letter-spacing: sprem($letterSpacing);
 	font-weight: $font-weight;
+	@if $case != null {
+		text-transform: $case;
+	}
 	@if $margin-bottom != null {
 		margin: 0 0 sprem($margin-bottom);
 	}
@@ -52,34 +49,34 @@ body, .body, .body1 {
  // 1rem => 16 px => 14sp,
  // so the values below are sp values converted to rem
  $typo-config:(
-  display4: (112, 112, 300),
-  display3: (56, 56, 400,),
-  display2: (45, 48, 400),
-  display1: (34, 40, 400),
-  headline: (24, 32, 400),
-  title: (20, 32, 500),
-  subheading: (16, 28, 400),
+  h1: (112, 112, 300),
+  h2: (56, 56, 400,),
+  h3: (45, 48, 400),
+  h4: (34, 40, 400),
+  h5: (24, 32, 400),
+  h6: (20, 32, 500),
+	subtitle1: (16, 28, 400),
+	subtitle2: (),
   body2: (14, 24, 500),
-  body1: (14, 20, 400),
+	body1: (14, 20, 400),
+	button: (14, 14, 500),
   caption: (12, 20, 400),
-  button: (14, 14, 500),
-  input: (16, 18, 400)
+	input: (16, 18, 400),
+	// overline:
 );
 
 // map material design level to html tags
 $mat-to-html:(
   // display4: h1,
-  display3: h1,
-  display2: h2,
-	display1: h3,
-	/*
-	Not sure about header here. Maybe another tag would be better
-	but I'm runnign out of html tags..
-	*/
-  headline: h4,
-  title: h5,
-	subheading: h6,
-  body2: b,
+  h1: h1,
+  h2: h2,
+	h3: h3,
+	h4: h4,
+	h5: h5,
+	h6: h6,
+	subtitle1: '.subtitle1',
+	subtitle2: '.subtitle2',
+  body2: '.body2',
   body1: body,
   caption: small,
   button: button,
@@ -96,21 +93,11 @@ $mat-to-html:(
 }
 
 // for each material value (display4) we apply the typo to h6, .h6, .display4
-@each $mat-val, $html in $mat-to-html{
-  #{$html}, .#{$html}, .#{$mat-val}{
-    @include apply-typo($mat-val);
-  }
-}
-
-// menuitem{
-// 	// @include apply-typo(headline);
+// @each $mat-val, $html in $mat-to-html{
+//   #{$html}, .#{$html}, .#{$mat-val}{
+//     // @include apply-typo($mat-val);
+//   }
 // }
-
-// Mat doc says buttons should be uppercase..
-button, input[type="submit"]{
-	color: var(--color-txt-primary);
-	text-transform: uppercase;
-}
 
 small{
 	color: var(--color-txt-third);

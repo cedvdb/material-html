@@ -1,3 +1,7 @@
+/* fn that trnasofrm sp units to rem  */
+@function sprem($sp) {
+  @return ($sp * 0.0625) + rem;
+}
 
 // generates css4 vars given a map and a prefix
 @mixin apply-var($map, $prefix) {
@@ -19,4 +23,5 @@
 		}
 	}
 }
+
 

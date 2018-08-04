@@ -1,13 +1,15 @@
+@import '../utils';
 
 // basic variables that are gonna be used to generate css4 vars by
 // generate-theme function
 $spacing: (
-	xxs: 0.1rem,
-	xs: 0.2rem,
-	s: 0.5rem,
-	m: 1rem,
-	l: 1.6rem,
-	xl: 3.2rem);
+	xxs: sprem(4),
+	xs: sprem(8),
+	s: sprem(12),
+	m: sprem(24),
+	l: sprem(48),
+	xl: sprem(64)
+	);
 
 $border: (
 	radius: 0.2rem,

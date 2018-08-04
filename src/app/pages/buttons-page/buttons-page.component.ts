@@ -3,7 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-buttons-page',
   templateUrl: './buttons-page.component.html',
-  styleUrls: ['./buttons-page.component.css']
+  styleUrls: ['./buttons-page.component.css'],
+  host: {
+    class: 'flexCenter'
+  }
 })
 export class ButtonsPageComponent implements OnInit {
 

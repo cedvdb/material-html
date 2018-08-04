@@ -10,15 +10,7 @@ https://github.com/angular/material2/blob/master/src/lib/core/theming/_palette.s
 // calculate them. These contrast colors are pulled from the public Material Design spec swatches.
 // While the contrast colors in the spec are not prescriptive, we use them for convenience.
 
-$dark-on-light-alpha-primary: 0.87;
-$dark-on-light-alpha-secondary: 0.54;
-$dark-on-light-alpha-third: 0.38;
-$dark-on-light-alpha-fourth: 0.12;
 
-$light-on-dark-alpha-primary: 0.7;
-$light-on-dark-alpha-secondary: 0.5;
-$light-on-dark-alpha-third: 0.3;
-$light-on-dark-alpha-fourth: 0.10;
 
 $background: (
   primary: white,
@@ -28,26 +20,29 @@ $background: (
 );
 
 $button: (
-  alpha: transparent,
-  alpha-hover: $dark-on-light-alpha-primary,
-  alpha-active: $dark-on-light-alpha-secondary,
-  alpha-dark: transparent,
-  alpha-hover-dark: $light-on-dark-alpha-primary,
-  alpha-active-dark: $light-on-dark-alpha-secondary,
+  brightness-hover: 96%,
+  brightness-active: 88%,
+  brightness-disabled: 88%,
+
+  brightness-hover-dark: 97%,
+  brightness-active-dark: 90%,
+  brightness-disabled-dark: 90%,
 );
 
 $text: (
-  primary: rgba(black, $dark-on-light-alpha-primary),
-  secondary: rgba(black, $dark-on-light-alpha-secondary),
-  third: rgba(black, $dark-on-light-alpha-secondary),
-  primary-dark: rgba(white, $light-on-dark-alpha-primary),
-  secondary-dark: rgba(white, $light-on-dark-alpha-secondary),
-  third-dark: rgba(white, $light-on-dark-alpha-third)
+  primary: rgba(black, 0.87),
+  secondary: rgba(black, 0.54),
+  third: rgba(black, 0.38),
+  fourth: rgba(black, 0.12),
+  primary-dark: rgba(white, 0.7),
+  secondary-dark: rgba(white, 0.5),
+  third-dark: rgba(white, 0.3),
+  fourth-dark: rgba(white, 0.10)
 );
 
 $divider: (
-  '':  rgba(black, $dark-on-light-alpha-fourth),
-  dark:  rgba(white, $light-on-dark-alpha-fourth),
+  '':  rgba(black, 0.12),
+  dark:  rgba(white, 0.10),
 );
 
 $dark-primary-text: map-get($text, primary-dark);

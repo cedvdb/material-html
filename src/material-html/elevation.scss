@@ -139,7 +139,7 @@ $_ambient-elevation-map: (
 }
 
 .z-h, .z-a{
-	@extend .z-2;
+	@extend .z-1;
 	transition: all 0.28s cubic-bezier(.25,.8,.25,1);
 }
 

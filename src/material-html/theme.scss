@@ -32,6 +32,7 @@
 	@include apply-var($spacing, '--spacing');
 	@include apply-var($border, '--border');
 	@include apply-var($font-weight, '--font-weight');
+
 	// TODO:
 	/**
 	1. Add option to add helper classes or not
@@ -40,5 +41,8 @@
 
 	*/
 
+
 }
+
+
 
