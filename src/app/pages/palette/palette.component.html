@@ -2,22 +2,24 @@
   Palette
 </section>
 
+<div class="palettes">
 
-<section *ngFor="let palette of allPalettes">
-  <header>
-    <!-- 0 is key 1 is value because we used object entries -->
-    {{ getName(palette) }}
-  </header>
+  <section *ngFor="let palette of allPalettes">
+    <header>
+      <!-- 0 is key 1 is value because we used object entries -->
+      {{ getName(palette) }}
+    </header>
 
-  <main>
-    <ul>
-      <li *ngFor="let color of getColors(palette)">
-        <div class="preview" [style.background]="color.value">
+    <main>
+      <ul>
+        <li *ngFor="let color of getColors(palette)">
+          <div class="preview" [style.background]="color.value">
 
-        </div>
-        <span>{{ color.name }} - {{ color.value }}</span>
-      </li>
-    </ul>
-  </main>
+          </div>
+          <span>{{ color.name }} - {{ color.value }}</span>
+        </li>
+      </ul>
+    </main>
 
-</section>
+  </section>
+</div>

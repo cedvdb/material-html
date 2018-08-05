@@ -11,6 +11,7 @@ import { HelperClassesComponent } from './helper-classes/helper-classes.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { CodeComponent } from '../components/code/code.component';
 import { PaletteComponent } from './palette/palette.component';
+import { MenuPageComponent } from './menu-page/menu-page.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { PaletteComponent } from './palette/palette.component';
     HelperClassesComponent,
     HomePageComponent,
     PaletteComponent,
+    MenuPageComponent,
   ],
   exports: [
     TypographyPageComponent,

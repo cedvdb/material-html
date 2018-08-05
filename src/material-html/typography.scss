@@ -11,34 +11,38 @@
 body, .body, .body1 {
 	/* perf optimisation : Default font is the one from OS,
 	huge drawback is that it's not displaying font-weight: 500
-	correctly on ubuntu. Not sure about other OS's.
-	If it's only ubuntu it's no big deal but if other OS's
-	don't display it either we might want to revert to Roboto font only */
-	font-family: -apple-system,system-ui,"Segoe UI",Roboto,
+	correctly on ubuntu. */
+	font-family: -apple-system, system-ui, "Segoe UI", Roboto,
 	Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	color: var(--color-txt-primary);
-	// seems like the commented line below might do some weird stuff
-	// text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+$font-weight-map: (
+	light: var(--font-weight-light),
+	regular: var(--font-weight-regular),
+	medium: var(--font-weight-medium),
+	bold: var(--font-weight-bold),
+);
+
 // 1. Here we have a mixin that outputs the different font properties
 @mixin get-typo(
-  $font-size: 1rem,
-	$font-weight: 400,
+	$font-size: 1rem,
+	$line-height: 1,
+	$font-weight: regular,
 	$letterSpacing: 0,
-	$case: null,
-	$margin-bottom: null) {
+	$isUpperCase: null) {
 
 	font-size: sprem($font-size);
 	letter-spacing: sprem($letterSpacing);
-	font-weight: $font-weight;
-	@if $case != null {
-		text-transform: $case;
-	}
-	@if $margin-bottom != null {
-		margin: 0 0 sprem($margin-bottom);
+	font-weight: map-get($font-weight-map, $font-weight);
+	@if $isUpperCase {
+		text-transform: uppercase;
 	}
 }
 
@@ -49,60 +53,46 @@ body, .body, .body1 {
  // 1rem => 16 px => 14sp,
  // so the values below are sp values converted to rem
  $typo-config:(
-  h1: (112, 112, 300),
-  h2: (56, 56, 400,),
-  h3: (45, 48, 400),
-  h4: (34, 40, 400),
-  h5: (24, 32, 400),
-  h6: (20, 32, 500),
-	subtitle1: (16, 28, 400),
-	subtitle2: (),
-  body2: (14, 24, 500),
-	body1: (14, 20, 400),
-	button: (14, 14, 500),
-  caption: (12, 20, 400),
-	input: (16, 18, 400),
-	// overline:
-);
-
-// map material design level to html tags
-$mat-to-html:(
-  // display4: h1,
-  h1: h1,
-  h2: h2,
-	h3: h3,
-	h4: h4,
-	h5: h5,
-	h6: h6,
-	subtitle1: '.subtitle1',
-	subtitle2: '.subtitle2',
-  body2: '.body2',
-  body1: body,
-  caption: small,
-  button: button,
-  input: input
+  h1: (96, 96, light, -1.5, false ),
+  h2: (60, 60, regular, -0.5, false),
+  h3: (48, 50, regular, 0, false),
+  h4: (34, 40, regular, 0.25, false),
+  h5: (24, 32, regular, 0, false),
+  h6: (20, 32, medium, 0.15, false),
+	subtitle1: (16, 28, regular, 0.15, false),
+	subtitle2: (14, 22, regular, 0.1, false),
+	body1: (16, 24, regular, 0.5, false),
+	body2: (14, 20, medium, 0.25, false),
+	input: (16, 18, regular, 0, false),
+	button: (14, 14, medium, 0.75, true),
+	caption: (12, 20, regular, 0.4, false),
+	overline: (10, 32, medium, 1.5, true)
 );
 
 // applies the type given a key. Example: apply-typo(display-4)
-@mixin apply-typo($key){
-	$list : map-get($typo-config, $key);
+@mixin apply-typo($list) {
 	$size : nth($list, 1);
 	$line-height : nth($list, 2);
 	$weight : nth($list, 3);
-	@include get-typo($size, $line-height, $weight);
+	$letterSpacing: nth($list, 4);
+	$isUpperCase: nth($list, 5);
+	@include get-typo($size, $line-height, $weight, $letterSpacing, $isUpperCase);
 }
 
-// for each material value (display4) we apply the typo to h6, .h6, .display4
-// @each $mat-val, $html in $mat-to-html{
-//   #{$html}, .#{$html}, .#{$mat-val}{
-//     // @include apply-typo($mat-val);
-//   }
-// }
+// for each material value (h6) we apply the typo to h6, .h6
+// some html tags don't exist, like body2, but that doesn't matter, since
+// we can just use the class when doing the html
+@each $mat-val, $config in $typo-config {
+  #{$mat-val}, .#{$mat-val} {
+    @include apply-typo($config);
+  }
+}
 
-small{
+small {
+	@extend .caption;
 	color: var(--color-txt-third);
 }
 
-time{
+time  {
 	@extend small;
 }

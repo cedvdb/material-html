@@ -1,4 +1,15 @@
 .preview {
 	width: var(--spacing-m);
 	height: var(--spacing-m);
+	margin-right: var(--spacing-xs);
+}
+
+.palettes {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	section {
+		width: 16rem;
+		margin: var(--spacing-m);
+	}
 }
