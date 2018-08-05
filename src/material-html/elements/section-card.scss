@@ -1,15 +1,23 @@
 
 
 section {
+	img {
+		width: 100%;
+	}
 	@extend .z-1;
-	padding: var(--spacing-m);
 	background: var(--color-bg-primary);
 	margin: var(--spacing-m);
 	margin-left: auto;
 	margin-right: auto;
-	// header { }
-	// main {
-	// 	padding: var(--spacing-m);
-	// }
-	// footer {}
+	header {
+		@extend h5;
+		padding: var(--spacing-m);
+		padding-bottom: 0;
+	}
+	main {
+		padding: var(--spacing-m);
+	}
+	footer {
+		padding: var(--spacing-m);
+	}
 }

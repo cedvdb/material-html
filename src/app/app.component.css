@@ -1,6 +1,4 @@
-.typos > * {
-	display: block;
-}
+
 
 main {
 	padding: var(--spacing-xl);
