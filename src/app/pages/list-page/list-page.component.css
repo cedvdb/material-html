@@ -1,0 +1,5 @@
+.preview {
+	width: 2rem;
+	height: 2rem;
+	margin-right: var(--spacing-xs);
+}

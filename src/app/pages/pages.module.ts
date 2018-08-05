@@ -12,6 +12,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CodeComponent } from '../components/code/code.component';
 import { PaletteComponent } from './palette/palette.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
+import { HelpersPageComponent } from './helpers-page/helpers-page.component';
+import { LayoutsPageComponent } from './layouts-page/layouts-page.component';
 
 @NgModule({
   imports: [
@@ -30,6 +32,8 @@ import { MenuPageComponent } from './menu-page/menu-page.component';
     HomePageComponent,
     PaletteComponent,
     MenuPageComponent,
+    HelpersPageComponent,
+    LayoutsPageComponent,
   ],
   exports: [
     TypographyPageComponent,

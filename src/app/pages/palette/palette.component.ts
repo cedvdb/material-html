@@ -15,7 +15,7 @@ export class PaletteComponent implements OnInit {
   }
 
   getName(palette: [string, any]) {
-    return palette[0];
+    return palette[0].replace('_', '-');
   }
 
   getColors(palette: [string, any]) {

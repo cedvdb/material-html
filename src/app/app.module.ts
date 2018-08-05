@@ -12,6 +12,8 @@ import { PagesModule } from './pages/pages.module';
 import { CardPageComponent } from './pages/card-page/card-page.component';
 import { CodeComponent } from './components/code/code.component';
 import { PaletteComponent } from './pages/palette/palette.component';
+import { MenuPageComponent } from './pages/menu-page/menu-page.component';
+import { HelperClassesComponent } from './pages/helper-classes/helper-classes.component';
 
 @NgModule({
 	declarations: [
@@ -28,7 +30,9 @@ import { PaletteComponent } from './pages/palette/palette.component';
 			{ path: 'button', component: ButtonsPageComponent },
 			{ path: 'getting-started', component: GettingStartedPageComponent },
 			{ path: 'card', component: CardPageComponent },
-			{ path: 'palette', component: PaletteComponent }
+			{ path: 'palette', component: PaletteComponent },
+			{ path: 'menu', component: MenuPageComponent },
+			{ path: 'helpers', component: HelperClassesComponent },
 
 		])
 	],

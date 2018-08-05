@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-page.component.css']
 })
 export class ListPageComponent implements OnInit {
+  list = ['indianred', 'lightcoral', 'salmon', 'darksalmon', 'lightsalmon'];
 
   constructor() { }
 

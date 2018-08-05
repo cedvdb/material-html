@@ -1,7 +1,8 @@
 li, .li {
 	border: none;
-	border-bottom: 0.1rem solid var(--color-divider);
+	border-bottom: 0.05rem solid var(--color-divider);
 	list-style-type: none;
 	display: flex;
+	align-items: center;
 	padding: var(--spacing-s);
 }

@@ -5,3 +5,10 @@
 main {
 	padding: var(--spacing-xl);
 }
+
+
+header {
+	background: #212121;
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: 500;
+}
