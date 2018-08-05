@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { allColors } from './palette';
+import { allPalettes } from './palette';
 
 @Component({
   selector: 'app-palette',
@@ -8,18 +8,21 @@ import { allColors } from './palette';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaletteComponent implements OnInit {
-  colors = Object.entries(allColors);
+  allPalettes = Object.entries(allPalettes);
   constructor() { }
 
   ngOnInit() {
   }
 
-  getName(color: [string, any]) {
-    return color[0].replace('mat_', '');
+  getName(palette: [string, any]) {
+    return palette[0];
   }
 
-  getSubColors(color: [string, any]) {
-    return Object.values(color[1]).filter(v => typeof v === 'string')
+  getColors(palette: [string, any]) {
+    // we only keep string, else it's a sub palette (for text)
+    return Object.entries(palette[1])
+      .map(([key, value]) => ({ name: key, value }))
+      .filter(color => typeof color.value === 'string');
   }
 
 }

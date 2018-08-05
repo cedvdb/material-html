@@ -3,18 +3,19 @@
 </section>
 
 
-<section *ngFor="let color of colors">
+<section *ngFor="let palette of allPalettes">
   <header>
     <!-- 0 is key 1 is value because we used object entries -->
-    {{ getName(color) }}
+    {{ getName(palette) }}
   </header>
 
   <main>
     <ul>
-      <li *ngFor="let c of getSubColors(color)">
-        <div class="preview" [style.background]="c">
+      <li *ngFor="let color of getColors(palette)">
+        <div class="preview" [style.background]="color.value">
 
         </div>
+        <span>{{ color.name }} - {{ color.value }}</span>
       </li>
     </ul>
   </main>
