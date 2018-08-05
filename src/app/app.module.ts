@@ -10,10 +10,12 @@ import { ButtonsPageComponent } from './pages/buttons-page/buttons-page.componen
 import { GettingStartedPageComponent } from './pages/getting-started-page/getting-started-page.component';
 import { PagesModule } from './pages/pages.module';
 import { CardPageComponent } from './pages/card-page/card-page.component';
+import { CodeComponent } from './components/code/code.component';
+import { PaletteComponent } from './pages/palette/palette.component';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -25,7 +27,9 @@ import { CardPageComponent } from './pages/card-page/card-page.component';
 			{ path: 'elevation', component: ElevationPageComponent },
 			{ path: 'button', component: ButtonsPageComponent },
 			{ path: 'getting-started', component: GettingStartedPageComponent },
-			{ path: 'card', component: CardPageComponent }
+			{ path: 'card', component: CardPageComponent },
+			{ path: 'palette', component: PaletteComponent }
+
 		])
 	],
 	providers: [],

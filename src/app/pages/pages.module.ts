@@ -9,12 +9,15 @@ import { GettingStartedPageComponent } from './getting-started-page/getting-star
 import { CardPageComponent } from './card-page/card-page.component';
 import { HelperClassesComponent } from './helper-classes/helper-classes.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CodeComponent } from '../components/code/code.component';
+import { PaletteComponent } from './palette/palette.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
+    CodeComponent,
     TypographyPageComponent,
     HeadersPageComponent,
     ListPageComponent,
@@ -23,7 +26,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     GettingStartedPageComponent,
     CardPageComponent,
     HelperClassesComponent,
-    HomePageComponent
+    HomePageComponent,
+    PaletteComponent,
   ],
   exports: [
     TypographyPageComponent,

@@ -1,0 +1,22 @@
+<section>
+  Palette
+</section>
+
+
+<section *ngFor="let color of colors">
+  <header>
+    <!-- 0 is key 1 is value because we used object entries -->
+    {{ getName(color) }}
+  </header>
+
+  <main>
+    <ul>
+      <li *ngFor="let c of getSubColors(color)">
+        <div class="preview" [style.background]="c">
+
+        </div>
+      </li>
+    </ul>
+  </main>
+
+</section>
