@@ -4,9 +4,37 @@ main {
 	padding: var(--spacing-xl);
 }
 
-
 header {
 	background: #212121;
 	color: rgba(255, 255, 255, 0.8);
 	font-weight: 500;
+}
+
+.material-logo {
+	background: url(/assets/mio-logo-sprite.png) 100% 50%/auto 100% no-repeat;
+	display: block;
+	height: 24px;
+	margin-right: 16px;
+	width: 24px;
+	animation: mioLogo 1.6s steps(96) forwards;
+	background-position: 100% 50%;
+}
+
+
+.github-icon {
+	height: 24px;
+}
+
+nav {
+	background: var(--color-bg-primary);
+	padding: var(--spacing-s);
+}
+
+nav small {
+	margin-top: var(--spacing-s);
+	margin-bottom: var(--spacing-xs);
+}
+
+.nav-block {
+	margin: var(--spacing-s);
 }

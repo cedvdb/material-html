@@ -11,7 +11,7 @@ input[type="number"], input[type="url"], input[type="month"],
 input[type="date"], input[type="datetime-locale"], input[type="datetime"],
 input[type="time"], input[type="month"], input[type="week"],
 input[type="search"] {
-	border-bottom: 0.1rem solid var(--color-txt-lighter);
+	border-bottom: 0.05rem solid var(--color-txt-third);
 }
 
 input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover,
@@ -19,7 +19,7 @@ input[type="number"]:hover, input[type="url"]:hover, input[type="month"]:hover,
 input[type="date"]:hover, input[type="datetime-locale"]:hover, input[type="datetime"]:hover,
 input[type="time"]:hover, input[type="month"]:hover, input[type="week"]:hover,
 input[type="search"]:hover {
-	border-bottom: 0.1rem solid var(--color-primary);
+	border-bottom: 0.05rem solid var(--color-primary);
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus,
@@ -27,5 +27,5 @@ input[type="number"]:focus, input[type="url"]:focus, input[type="month"]:focus,
 input[type="date"]:focus, input[type="datetime-locale"]:focus, input[type="datetime"]:focus,
 input[type="time"]:focus, input[type="month"]:focus, input[type="week"]:focus,
 input[type="search"]:focus {
-	border-bottom: 0.1rem solid var(--color-accent);
+	border-bottom: 0.05rem solid var(--color-accent);
 }

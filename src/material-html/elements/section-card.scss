@@ -7,8 +7,6 @@ section {
 	@extend .z-1;
 	background: var(--color-bg-primary);
 	margin: var(--spacing-m);
-	margin-left: auto;
-	margin-right: auto;
 	header {
 		@extend h5;
 		padding: var(--spacing-m);

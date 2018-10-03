@@ -1,3 +1,57 @@
-<p>
-  helper-classes works!
-</p>
+
+<section>
+  <header>Palette Helpers</header>
+  <main>
+    <ul>
+      <li *ngFor="let cls of colorClss">
+        <span class="example {{ cls }}">{{ cls }}</span>
+      </li>
+    </ul>
+  </main>
+</section>
+
+<section>
+  <header>Text Palette Helpers</header>
+  <main>
+    <ul>
+      <li *ngFor="let cls of txtClss">
+        <span class="{{ cls }} example">{{ cls }}</span>
+      </li>
+    </ul>
+  </main>
+</section>
+
+<section>
+  <header>Spacing Helpers (margin & padding)</header>
+  <main>
+    <ul>
+      <li *ngFor="let cls of spacingClss">
+        <span class="example">{{ cls }}</span>
+      </li>
+    </ul>
+  </main>
+</section>
+
+<section>
+  <header>Flex Helpers</header>
+  <main>
+    <ul>
+      <li *ngFor="let cls of flexClss">
+        <span class="example">{{ cls }}</span>
+      </li>
+    </ul>
+  </main>
+</section>
+
+
+<section>
+  <header>Misc Helpers</header>
+  <main>
+    <ul>
+      <li *ngFor="let cls of miscClss">
+        <span class="example">{{ cls }}</span>
+      </li>
+    </ul>
+  </main>
+</section>
+

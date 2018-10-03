@@ -34,10 +34,10 @@ $text: (
   secondary: rgba(black, 0.54),
   third: rgba(black, 0.38),
   fourth: rgba(black, 0.12),
-  primary-dark: rgba(white, 0.7),
-  secondary-dark: rgba(white, 0.5),
-  third-dark: rgba(white, 0.3),
-  fourth-dark: rgba(white, 0.10)
+  primary-on-dark: rgba(white, 0.7),
+  secondary-on-dark: rgba(white, 0.5),
+  third-on-dark: rgba(white, 0.3),
+  fourth-on-dark: rgba(white, 0.10)
 );
 
 $divider: (
@@ -45,8 +45,8 @@ $divider: (
   dark:  rgba(white, 0.10),
 );
 
-$dark-primary-text: map-get($text, primary-dark);
-$light-primary-text: map-get($text, primary);
+$dark-primary-text: map-get($text, primary);
+$light-primary-text: map-get($text, primary-on-dark);
 
 $mat-red: (
   50: #ffebee,

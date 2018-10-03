@@ -1,3 +1,6 @@
-.example {
+section.example {
 	width: 400px;
+	height: 610px;
+	margin-left: 1rem;
+	margin-right: 1rem;
 }

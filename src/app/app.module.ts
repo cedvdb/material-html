@@ -14,6 +14,7 @@ import { CodeComponent } from './components/code/code.component';
 import { PaletteComponent } from './pages/palette/palette.component';
 import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { HelperClassesComponent } from './pages/helper-classes/helper-classes.component';
+import { InputsPageComponent } from './pages/inputs-page/inputs-page.component';
 
 @NgModule({
 	declarations: [
@@ -33,7 +34,7 @@ import { HelperClassesComponent } from './pages/helper-classes/helper-classes.co
 			{ path: 'palette', component: PaletteComponent },
 			{ path: 'menu', component: MenuPageComponent },
 			{ path: 'helpers', component: HelperClassesComponent },
-
+			{ path: 'input', component: InputsPageComponent },
 		])
 	],
 	providers: [],

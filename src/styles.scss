@@ -3,10 +3,18 @@
 @import './material-html/layouts/vanilla';
 
 
-:root{
+// $palette : get-mat-palette('blue');
+// $primary : palette($palette, 600, 400, 800);
+
+:root {
 	@include generate-theme('blue', 'amber');
 }
 
 section {
 	width: 70%;
+}
+
+.mainCtnr :nth-child(2) section {
+	margin-left: auto;
+	margin-right: auto;
 }

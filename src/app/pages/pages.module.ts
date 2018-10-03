@@ -14,34 +14,36 @@ import { PaletteComponent } from './palette/palette.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { HelpersPageComponent } from './helpers-page/helpers-page.component';
 import { LayoutsPageComponent } from './layouts-page/layouts-page.component';
+import { InputsPageComponent } from './inputs-page/inputs-page.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    CodeComponent,
-    TypographyPageComponent,
-    HeadersPageComponent,
-    ListPageComponent,
-    ElevationPageComponent,
-    ButtonsPageComponent,
-    GettingStartedPageComponent,
-    CardPageComponent,
-    HelperClassesComponent,
-    HomePageComponent,
-    PaletteComponent,
-    MenuPageComponent,
-    HelpersPageComponent,
-    LayoutsPageComponent,
-  ],
-  exports: [
-    TypographyPageComponent,
-    HeadersPageComponent,
-    ListPageComponent,
-    ElevationPageComponent,
-    ButtonsPageComponent,
-    GettingStartedPageComponent
-  ]
+	imports: [
+		CommonModule
+	],
+	declarations: [
+		CodeComponent,
+		TypographyPageComponent,
+		HeadersPageComponent,
+		ListPageComponent,
+		ElevationPageComponent,
+		ButtonsPageComponent,
+		GettingStartedPageComponent,
+		CardPageComponent,
+		HelperClassesComponent,
+		HomePageComponent,
+		PaletteComponent,
+		MenuPageComponent,
+		HelpersPageComponent,
+		LayoutsPageComponent,
+		InputsPageComponent,
+	],
+	exports: [
+		TypographyPageComponent,
+		HeadersPageComponent,
+		ListPageComponent,
+		ElevationPageComponent,
+		ButtonsPageComponent,
+		GettingStartedPageComponent
+	]
 })
 export class PagesModule { }

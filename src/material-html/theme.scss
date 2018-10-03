@@ -33,15 +33,6 @@
 	@include apply-var($border, '--border');
 	@include apply-var($font-weight, '--font-weight');
 
-	// TODO:
-	/**
-	1. Add option to add helper classes or not
-	2. Button and divider should be generated with alpha channel
-	3. light and dark bg
-
-	*/
-
-
 }
 
 

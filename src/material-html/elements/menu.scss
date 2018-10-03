@@ -2,7 +2,7 @@
 
 menu {
 	menuitem {
-		display: block;
+		display: flex;
 		@extend button;
 	}
 }

@@ -8,7 +8,6 @@
 @include apply-class($spacing, 'pd' , padding);
 
 /** colors */
-
 .bg-primary {
 	background: var(--color-primary);
 }
@@ -40,8 +39,21 @@
 .color-success {
 	color: var(--color-success);
 }
-/** Flex */
 
+/** text */
+.txt-primary {
+	color: var(--color-txt-primary);
+}
+
+.txt-secondary {
+	color: var(--color-txt-secondary);
+}
+
+.txt-third {
+	color: var(--color-txt-third);
+}
+
+/** Flex */
 .flex {
   display: flex;
 }
