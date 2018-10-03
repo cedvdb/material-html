@@ -24,6 +24,7 @@ import { InputsPageComponent } from './pages/inputs-page/inputs-page.component';
 		BrowserModule,
 		PagesModule,
 		RouterModule.forRoot([
+			{ path: '', pathMatch: 'full', redirectTo: 'getting-started' },
 			{ path: 'typography', component: TypographyPageComponent },
 			{ path: 'header', component: HeadersPageComponent },
 			{ path: 'list', component: ListPageComponent },
