@@ -38,8 +38,9 @@ To do so, you can use the helper function:
 ```
 /** the color names here are names from the palette
 * in order they are: primary, secondary, warn, success */
-
-generate-theme('indigo', 'brown', 'red', 'green');
+:root {
+  @include generate-theme('indigo', 'brown', 'red', 'green');
+}
 
 ```
 
