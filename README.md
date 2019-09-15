@@ -1,5 +1,5 @@
 
-demo: https://cedvdb.github.io/material-html/getting-started
+demo: https://cedvdb.github.io/material-html
 
 
 # Material HTML
